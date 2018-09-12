@@ -107,7 +107,19 @@ In this assignment you will edit the parser in `parse_sql.py` to support the OFF
 
 #### Parse OFFSET
 
-Edit the `limit` rule in the SQL grammar to recognize the `OFFSET [expression]` syntax.  The offset keyword in a query should be capitalized, followed by one or more spaces, and then an expression.  Further, make sure to edit the rule's visitor so that it initialized Limit properly.  
+Edit the `limit` rule in the SQL grammar to recognize the `OFFSET [expression]` syntax.  The offset keyword in a query should be capitalized, followed by one or more spaces, and then an expression.  Note that the offset can be an expression:
+
+        SELECT 1 FROM data LIMIT 1 OFFSET 1
+        SELECT 1 FROM data LIMIT 1 OFFSET 10
+        SELECT 1 FROM data LIMIT 1 OFFSET 1+10
+        SELECT 1 FROM data LIMIT 1 OFFSET 1*10+4
+
+You can assume that the offset expression will only be tested with arithmetic expressions that well not reference any attributes.  Thus do you don't need to worry about the following:
+
+        SELECT 1 FROM data LIMIT 1 OFFSET 'blue'
+        SELECT 1 FROM data LIMIT 1 OFFSET data.attr + 1
+
+Further, make sure to edit the rule's visitor so that it initializes the Limit operator properly.  
 
 #### The LIMIT Operator
 
