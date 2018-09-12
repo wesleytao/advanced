@@ -1,5 +1,3 @@
-[Advanced Assignments](./) > [DataBass](./databass)
-
 ## AA1: Add OFFSET to the LIMIT Clause
 
 
