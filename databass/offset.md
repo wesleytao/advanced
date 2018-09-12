@@ -6,6 +6,8 @@
 * Value: 3.75% of class grade
 * Max team of 2
 
+This assignment is part of the [DataBass Series of Advanced Assignment](./).  Take a look at the [README](./) in this directory to get an overview of the system and how to set it up.  Then read these instructions.  Since these advanced assignments are new and experimental, please be patient with us and [ask any questions on Piazza](https://piazza.com/class/jgwnwiy186d6pu).
+
 
 The goal of this assignment is to modify the SQL parser, the operator implementations, and the interpretor to support the OFFSET statement in the LIMIT clause.    After completing this assignment, DataBass will be able to eecute queries such as 
 
