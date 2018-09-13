@@ -4,15 +4,64 @@ import pandas
 import tempfile
 import os.path
 
+import interpretor
+import optimizer
+import ops
+import db
+from interpretor import PullBasedInterpretor
+from optimizer import Optimizer
+from ops import Limit
+from db import Database
+from parse_sql import parse 
+
+
+
 import pandas.util.testing as pdt
 
-class TestUnits(unittest.TestCase):
-    """Basic unit testing"""
+db = Database()
+opt = Optimizer(db)
+interp = PullBasedInterpretor(db)
 
-    def testExample(self):
-        """"""
-        self.assertTrue(True)
+
+
+class TestUnits(unittest.TestCase):
+  """Basic unit testing"""
+
+  def queries_not_equal(self, q1, q2):
+    ast1 = parse(q1)
+    ast2 = parse(q2)
+    self.assertNotEqual(str(ast1), str(ast2))
+
+  def run_query(self, q):
+    ast = parse(q)
+    plan = opt(ast)
+    return [row for row in interp(plan)]
+
+  def test_parse(self):
+    """""" 
+    parse("SELECT 1 FROM data LIMIT 1 OFFSET 1")
+    parse("SELECT 1 FROM data LIMIT 1 OFFSET 1+1")
+
+    with self.assertRaises(Exception):
+      parse("SELECT 1 FROM data LIMIT 1 OFFSET")
+
+    with self.assertRaises(Exception):
+      parse("SELECT 1 FROM data OFFSET 1 LIMIT 1")
+
+    with self.assertRaises(Exception):
+      parse("SELECT a FROM data LIMIT 1 OFFSET -1")
+
+  def test_tostr(self):
+    self.queries_not_equal(
+        "SELECT 1 FROM data LIMIT 1",
+        "SELECT 1 FROM data LIMIT 1 OFFSET 1")
+
+  def test_constantoffset(self):
+    truth = [{'a': 1}, {'a': 2}, {'a': 3}]
+    results = self.run_query("SELECT a FROM data LIMIT 3 OFFSET 1")
+    self.assertEqual(results, truth)
+
 
 
 if __name__ == '__main__':
-    unittest.main()
+  unittest.main()
