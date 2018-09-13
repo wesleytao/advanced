@@ -132,7 +132,7 @@ Now edit `Limit.__iter__()` so that if an offset is specified, the execution eng
 
 ### Unit Tests
 
-Copy `test_offset.py` into the `databass/src/engine/` folder and then run it.  All the tests should pass.  Take a look at the file to see what we are testing.  
+Copy `test_offset.py` into the `databass/src/engine/` folder and then run it.  All the tests should pass.  Take a look at the file to see what we are testing.   Feel free to add additional tests that we may not have included.  Our autograder contains a more complete set of test cases that we will evaluate your submission with.
 
 ### Submission Instructions
 
