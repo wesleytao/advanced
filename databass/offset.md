@@ -114,7 +114,9 @@ Edit the `limit` rule in the SQL grammar to recognize the `OFFSET [expression]` 
         SELECT 1 FROM data LIMIT 1 OFFSET 1+10
         SELECT 1 FROM data LIMIT 1 OFFSET 1*10+4
 
-You can assume that the offset expression will only be tested with arithmetic expressions that well not reference any attributes.  Thus do you don't need to worry about the following:
+However, it is NOT valid for OFFSET to be negative!
+
+Further, you can assume that the offset expression will only be tested with arithmetic expressions that well not reference any attributes.  Thus do you don't need to worry about the following:
 
         SELECT 1 FROM data LIMIT 1 OFFSET 'blue'
         SELECT 1 FROM data LIMIT 1 OFFSET data.attr + 1
