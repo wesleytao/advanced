@@ -136,4 +136,9 @@ Copy `test_offset.py` into the `databass/src/engine/` folder and then run it.  A
 
 ### Submission Instructions
 
-TBD
+
+Run the submission script `submit.py` to package and zip your file.  It will ask you to submit you and your partners' UNIs and specify the assignment. It will create a zip file in the current directory.  Submit the generated ZIP file to Canvas. 
+
+        python submit.py --help
+
+Both partners should submit on their Canvas accounts.
