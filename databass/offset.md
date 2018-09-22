@@ -6,6 +6,8 @@
 * Value: 3.75% of class grade
 * Max team of 2
 
+
+
 This assignment is part of the [DataBass Series of Advanced Assignment](./).  Take a look at the [README](./) in this directory to get an overview of the system and how to set it up.  Then read these instructions.  Since these advanced assignments are new and experimental, please be patient with us and [ask any questions on Piazza](https://piazza.com/class/jgwnwiy186d6pu).
 
 
@@ -22,6 +24,9 @@ In addition, syntactically correct queries should be parsed but fail to run (`fo
 
         SELECT 1 LIMIT 10 OFFSET foo
 
+#### Edits
+
+* Updated specs to reflect that negative OFFSET values should raise an exception
 
 #### The Parser
 
@@ -128,6 +133,8 @@ Further, make sure to edit the rule's visitor so that it initializes the Limit o
 At this point, databass will throw an exception during parsing because the Limit class' constructor needs to be modified to store the offset value.  Edit `ops.py` so that the Limit operator can take the offset as an optional paramater.  At this point, you should be able to parse queries with OFFSET, but it will not run correctly.
 
 Now edit `Limit.__iter__()` so that if an offset is specified, the execution engine will correctly return the results offset by the amount specified in the OFFSET clause.
+
+The SQL specs state that LIMIT and OFFSET cannot be negative.  Please make sure that if the OFFSET is negative, that you raise an exception (of any kind).
 
 
 ### Unit Tests
