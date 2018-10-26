@@ -14,7 +14,7 @@ Now you are ready to [read the system architecture and documentation](https://gi
 
 Each assignment modifies a different part of the engine:
 
-1. [Add OFFSET to DataBass](./offset.md)
-1. [Query compilation](./compile.md)
-1. [Join ordering optimization](./join.md)
+* [AA1: Add OFFSET to DataBass](./offset.md)
+* [AA3: Query compilation](./compile.md)
+* [AA5: Join ordering optimization](./join.md)
 
