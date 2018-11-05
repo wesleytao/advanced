@@ -5,7 +5,7 @@ The series of advanced assignments will ask you to write programs or edit a simp
 You will recieve extra credit equivalent to one homework assignment.  The fifth assignment AA5 is worth slightly more because the assignment is a bit more involved than the others.
 
 * [AA1: Implement OFFSET in DataBass](./databass/offset.md)
-* [AA2: Graph analysis using common table expressions](./graph)
+* [AA2: Graph analysis using common table expressions](./graph) (thisone is deleted)
 * [AA3: Query Compilation](./databass/compile.md)
 * [AA4: Fun with Window Functions](./)
 * [AA5: Join Optimization](./databass/join.md)
