@@ -12,9 +12,7 @@ from interpretor import PullBasedInterpretor
 from optimizer import Optimizer
 from ops import Limit
 from db import Database
-from parse_sql import parse 
-
-
+from parse_sql import parse
 
 import pandas.util.testing as pdt
 
@@ -38,7 +36,7 @@ class TestUnits(unittest.TestCase):
     return [row for row in interp(plan)]
 
   def test_parse(self):
-    """""" 
+    """"""
     parse("SELECT 1 FROM data LIMIT 1 OFFSET 1")
     parse("SELECT 1 FROM data LIMIT 1 OFFSET 1+1")
 
